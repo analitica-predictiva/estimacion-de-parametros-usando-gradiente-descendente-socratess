@@ -45,8 +45,7 @@ def pregunta_02():
 
     # Defina el parámetro inicial `params` como un arreglo de tamaño 3 con ceros
     params = np.zeros(x_poly.shape[1])
-    #params = np.zeros(3)
-    
+        
     for epoch in range(n_iterations):
 
         # Compute el pronóstico con los parámetros actuales
