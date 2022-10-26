@@ -41,22 +41,24 @@ def pregunta_02():
 
     # Fije la tasa de aprendizaje en 0.0001 y el número de iteraciones en 1000
     learning_rate = 0.0001
-    n_iterations = 1000
+    n_iterations = 500
 
     # Defina el parámetro inicial `params` como un arreglo de tamaño 3 con ceros
-    params = np.zeros(params.shape[1])
-    for _ in range(n_iterations):
+    params = np.zeros(x_poly.shape[1])
+    #params = np.zeros(3)
+    
+    for epoch in range(n_iterations):
 
         # Compute el pronóstico con los parámetros actuales
-        y_pred = np.___(___, ___)
+        y_pred = np.dot(x_poly, params)
 
         # Calcule el error
-        error = ___ - ___
+        error = [yt - yp for yt, yp in zip(y, y_pred)]
 
         # Calcule el gradiente
-        gradient = ____
+        gradient = -2 * np.sum(np.multiply(x_poly, np.array(error)[:, np.newaxis]), axis=0)
 
         # Actualice los parámetros
         params = params - learning_rate * gradient
-
+    print(params)
     return params
